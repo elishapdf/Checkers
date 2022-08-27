@@ -1,21 +1,23 @@
 import pygame
+from .constants import SQUARE_SIZE, PADDING
 
 
 class Piece:
-
-    def __init__(self, colour, row, col):
-        self.colour = colour
+    def __init__(self, row, col, colour):
         self.row = row
         self.col = col
+        self.colour = colour
         self.king = False
         self.x = 0
         self.y = 0
 
-    def draw_piece(self, win):
+    def draw_piece(self, win):  # rename to "draw" ?
         # draw the game piece
         # think about how big we want piece relative to the square location
+        # circle(surface, color, center, radius)
         # also draw king piece
-        pass
+        radius = SQUARE_SIZE//2 - PADDING
+        pygame.draw.circle(win, self.colour, (self.x, self.y), radius)
 
     def make_king(self):
         # make into king piece
@@ -31,4 +33,5 @@ class Piece:
         pass
 
     def __repr__(self):  # for debugging, return the colour instead of object code
-        return str(self.color)
+        return str(self.colour)
+

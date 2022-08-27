@@ -1,8 +1,9 @@
 import pygame
 
-HEIGHT, WIDTH = 800, 800
+HEIGHT, WIDTH = 600, 600
 ROWS, COLS = 8, 8
 SQUARE_SIZE = HEIGHT//ROWS
+PADDING = 5
 
 # RGB colours
 BLACK = (0, 0, 0)

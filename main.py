@@ -1,5 +1,6 @@
 import pygame
-from checkers import HEIGHT, WIDTH
+from checkers.constants import HEIGHT, WIDTH
+from checkers.board import Board
 
 FPS = 60
 
@@ -13,6 +14,7 @@ def get_pos_of_mouse(pos):
 if __name__ == '__main__':
     run = True
     clock = pygame.time.Clock()
+    board = Board()
 
     # game loop
     while run:
@@ -27,5 +29,9 @@ if __name__ == '__main__':
             # mouse movements
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pass
+
+        # Board()
+        board.draw(WIN)
+        pygame.display.update()
 
     pygame.quit()

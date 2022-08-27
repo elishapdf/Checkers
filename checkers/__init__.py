@@ -1,1 +1,1 @@
-from checkers import *
+# from checkers import *

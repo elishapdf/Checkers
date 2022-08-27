@@ -1,26 +1,51 @@
 import pygame
+from .constants import BLACK, WHITE, GREY, ROWS, COLS, SQUARE_SIZE
+from .piece import Piece
+
 
 class Board:
     def __init__(self):
         self.board = []  # internal representation of board
-        self.black = self.white = 12  # number of red and white pieces
-        self.black_king = self.white_king = 0 # number of red and white kings
+        self.black_piece = self.white_piece = 12  # number of red and white pieces
+        self.black_king = self.white_king = 0  # number of red and white kings
+        self.initialize_board()
 
-    def draw_board(self, win):
+    def draw_empty_board(self, win):
         # draw the checkerboard
         # use pygame.draw.rect
-        pass
+        win.fill(GREY)
+        for row in range(ROWS):
+            for col in range(row % 2, COLS, 2):
+                # rect(surface, color, rect), rect = x, y , height, width, (x,y) = top-left corner coord
+                pygame.draw.rect(win, WHITE, (row * SQUARE_SIZE, col * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
 
-    def draw_pieces(self, win):
+    def draw(self, win):
         # draw the game pieces on the board
         # call draw_board here first?
-        pass
+        self.draw_empty_board(win)
+        for row in range(ROWS):
+            for col in range(COLS):
+                piece = self.board[row][col]
+                if piece != 0 and piece != -1:
+                    piece.draw_piece(win)
 
-    def initialize_board(self):
+    def initialize_board(self):  # could change to add -1 to self.board
         # create the initial board
         # could use interior list for each row
         # on board square there is either piece or is empty
-        pass
+        for row in range(ROWS):
+            self.board.append([])
+            for col in range(COLS):
+                if row % 2 == ((col + 1) % 2):
+                    if row < 3:
+                        self.board[row].append(Piece(row, col, BLACK))
+                    elif row > 4:
+                        self.board[row].append(Piece(row, col, WHITE))
+                    else:
+                        self.board[row].append(0)
+                else:
+                    self.board[row].append(-1)
+
 
     def get_piece(self, row, col):
         # return piece at current location
