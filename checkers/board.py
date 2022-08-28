@@ -1,5 +1,5 @@
 import pygame
-from .constants import BLACK, WHITE, GREY, ROWS, COLS, SQUARE_SIZE
+from .constants import BLACK, WHITE, GREY, ROWS, COLS, SQUARE_SIZE,RED
 from .piece import Piece
 
 
@@ -27,7 +27,13 @@ class Board:
             for col in range(COLS):
                 piece = self.board[row][col]
                 if piece != 0 and piece != -1:
-                    piece.draw_piece(win)
+                    if row > 4:
+                        new_piece = Piece(row,col,RED)
+                        new_piece.draw_piece(win)
+                    
+                    else:
+                        new_piece = Piece(row,col,BLACK)
+                        new_piece.draw_piece(win)
 
     def initialize_board(self):  # could change to add -1 to self.board
         # create the initial board

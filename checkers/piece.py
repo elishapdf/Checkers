@@ -8,8 +8,8 @@ class Piece:
         self.col = col
         self.colour = colour
         self.king = False
-        self.x = 0
-        self.y = 0
+        self.x = SQUARE_SIZE * col + SQUARE_SIZE // 2
+        self.y = SQUARE_SIZE * row + SQUARE_SIZE // 2
 
     def draw_piece(self, win):  # rename to "draw" ?
         # draw the game piece
