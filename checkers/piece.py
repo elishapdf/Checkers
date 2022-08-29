@@ -21,6 +21,7 @@ class Piece:
 
     def make_king(self):
         # make into king piece
+        self.king = True
         pass
 
     def pos(self):
@@ -32,6 +33,6 @@ class Piece:
         # move the game piece
         pass
 
-    def __repr__(self):  # for debugging, return the colour instead of object code
-        return str(self.colour)
+    # def __repr__(self):  # for debugging, return the colour instead of object code
+    #     return str(self.colour)
 

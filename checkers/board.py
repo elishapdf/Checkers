@@ -46,8 +46,7 @@ class Board:
                         self.board[row].append(0)
                 else:
                     self.board[row].append(-1)
-
-
+            
     def get_piece(self, row, col):
         # return piece at current location
         pass
@@ -56,3 +55,24 @@ class Board:
         # move pieces on the board - swap location of piece curr to new
         # check if piece is king in new location
         pass
+
+    def highlight_squares(self,win,row,col,colour):
+        if row != -1 and col != -1:
+            piece = Piece(row,col,colour)
+            piece.draw_piece(win)
+        
+
+    def remove_drawing(self,win,row,col):
+        if row != -1 and col != -1:
+            # if self.board[row][col] == 0:
+            pygame.draw.rect(win, GREY, (row * SQUARE_SIZE, col * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
+        
+
+    def move(self, row, col, new_row, new_col, colour,win):
+        # move the game piece
+        # pygame.draw.rect(win, GREY, (row * SQUARE_SIZE, col * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
+        self.board[row][col] = 0
+        self.board[new_row][new_col] = Piece(new_row,new_col,colour)
+        piece = self.board[new_row][new_col]
+        piece.draw_piece(win)
+        
