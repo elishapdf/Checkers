@@ -80,26 +80,26 @@ class Game:
                             if pos[1] < 7 or pos[1] > 0:
                                 # if user moves to right
                                 if pos1 == right_diag_square:
-                                    board.remove_drawing(WIN,right_diag_square[1],right_diag_square[0])
-                                    board.remove_drawing(WIN,left_diag_square[1],left_diag_square[0])
-                                    board.remove_drawing(WIN,pos[1],pos[0])
+                                    board.remove_circle(WIN,right_diag_square[1],right_diag_square[0])
+                                    board.remove_circle(WIN,left_diag_square[1],left_diag_square[0])
+                                    board.remove_circle(WIN,pos[1],pos[0])
                                     pygame.display.update()
                                     board.move(pos[0],pos[1],right_diag_square[0],right_diag_square[1],RED,WIN)
                                     pygame.display.update()
                                     
                                 elif pos1 == left_diag_square:
                                     #if user moves to left
-                                    board.remove_drawing(WIN,left_diag_square[1],left_diag_square[0])
-                                    board.remove_drawing(WIN,right_diag_square[1],right_diag_square[0])
-                                    board.remove_drawing(WIN,pos[1],pos[0])
+                                    board.remove_circle(WIN,left_diag_square[1],left_diag_square[0])
+                                    board.remove_circle(WIN,right_diag_square[1],right_diag_square[0])
+                                    board.remove_circle(WIN,pos[1],pos[0])
                                     pygame.display.update()
                                     board.move(pos[0],pos[1],left_diag_square[0],left_diag_square[1],RED,WIN)
                                     pygame.display.update()
 
                                 else:
                                     #user chooses another piece
-                                    board.remove_drawing(WIN,left_diag_square[1],left_diag_square[0])
-                                    board.remove_drawing(WIN,right_diag_square[1],right_diag_square[0])
+                                    board.remove_circle(WIN,left_diag_square[1],left_diag_square[0])
+                                    board.remove_circle(WIN,right_diag_square[1],right_diag_square[0])
                                     pygame.display.update()
                             run1 = False 
 

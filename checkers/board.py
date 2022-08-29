@@ -62,7 +62,7 @@ class Board:
             piece.draw_piece(win)
         
 
-    def remove_drawing(self,win,row,col):
+    def remove_circle(self,win,row,col):
         if row != -1 and col != -1:
             # if self.board[row][col] == 0:
             pygame.draw.rect(win, GREY, (row * SQUARE_SIZE, col * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
