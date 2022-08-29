@@ -27,13 +27,8 @@ class Board:
             for col in range(COLS):
                 piece = self.board[row][col]
                 if piece != 0 and piece != -1:
-                    if row > 4:
-                        new_piece = Piece(row,col,RED)
-                        new_piece.draw_piece(win)
-                    
-                    else:
-                        new_piece = Piece(row,col,BLACK)
-                        new_piece.draw_piece(win)
+                    piece.draw_piece(win)
+
 
     def initialize_board(self):  # could change to add -1 to self.board
         # create the initial board
@@ -46,7 +41,7 @@ class Board:
                     if row < 3:
                         self.board[row].append(Piece(row, col, BLACK))
                     elif row > 4:
-                        self.board[row].append(Piece(row, col, WHITE))
+                        self.board[row].append(Piece(row, col, RED))
                     else:
                         self.board[row].append(0)
                 else:
